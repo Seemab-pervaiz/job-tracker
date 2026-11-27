@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../components/AuthLayout";
 
 const inputClass =
-  "w-full border border-slate-300 rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500 bg-white";
+  "w-full border border-slate-300 rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-amber-600 bg-white";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -38,7 +38,7 @@ export default function Login() {
       footer={
         <>
           Don't have an account?{" "}
-          <Link to="/register" className="text-indigo-600 font-medium">
+          <Link to="/register" className="text-amber-700 hover:text-amber-800 font-medium">
             Register
           </Link>
         </>
@@ -91,7 +91,7 @@ export default function Login() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg py-3 flex items-center justify-center gap-2 disabled:opacity-60 transition"
+          className="w-full bg-amber-700 hover:bg-amber-800 text-white font-medium rounded-lg py-3 flex items-center justify-center gap-2 disabled:opacity-60 transition"
         >
           {loading && <Loader2 className="animate-spin" size={18} />}
           {loading ? "Logging in..." : "Login"}

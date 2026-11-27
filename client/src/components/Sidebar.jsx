@@ -20,12 +20,12 @@ const links = [
 const linkClass = ({ isActive }) =>
   `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition ${
     isActive
-      ? "bg-indigo-50 text-indigo-600"
+      ? "bg-amber-100/80 text-amber-900 dark:bg-amber-950/50 dark:text-amber-300"
       : "text-slate-600 hover:bg-slate-100"
   }`;
 
 const logoBox =
-  "bg-linear-to-br from-indigo-500 to-cyan-500 rounded-lg shadow-sm";
+  "bg-linear-to-br from-amber-600 to-stone-800 rounded-lg shadow-sm";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
@@ -87,7 +87,7 @@ export default function Sidebar() {
             <span className="font-bold text-slate-800">JobTracker</span>
           </div>
           <div className="flex items-center gap-4 text-slate-500">
-            <button onClick={toggle} className="hover:text-indigo-600">
+            <button onClick={toggle} className="hover:text-amber-700">
               {dark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button onClick={logout} className="hover:text-red-600">

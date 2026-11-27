@@ -13,7 +13,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
   return (
     <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50">
       {/* Left: brand panel (sirf bari screen pe) */}
-      <div className="hidden lg:flex flex-col justify-between bg-linear-to-br from-indigo-600 to-cyan-600 text-white p-12">
+      <div className="hidden lg:flex flex-col justify-between bg-linear-to-br from-amber-700 via-amber-800 to-stone-900 text-white p-12">
         <div className="flex items-center gap-3">
           <div className="bg-white/20 p-2.5 rounded-xl">
             <Briefcase size={22} />
@@ -27,7 +27,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
             <br />
             finally organised.
           </h2>
-          <p className="mt-4 text-indigo-100 max-w-md">
+          <p className="mt-4 text-amber-100 max-w-md">
             Find jobs in your field and city, save them in one place, and
             follow every application from wishlist to offer.
           </p>
@@ -38,7 +38,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
                 <span className="bg-white/20 p-2 rounded-lg">
                   <Icon size={18} />
                 </span>
-                <span className="text-indigo-50">{text}</span>
+                <span className="text-amber-50">{text}</span>
               </li>
             ))}
           </ul>
@@ -57,7 +57,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
 
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="bg-linear-to-br from-indigo-500 to-cyan-500 p-2 rounded-lg">
+            <div className="bg-linear-to-br from-amber-600 to-stone-800 p-2 rounded-lg">
               <Briefcase className="text-white" size={18} />
             </div>
             <span className="font-bold text-slate-800 text-lg">JobTracker</span>

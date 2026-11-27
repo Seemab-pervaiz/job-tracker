@@ -147,11 +147,11 @@ export default function Overview() {
   return (
     <div className="max-w-6xl">
       {/* Hero */}
-      <div className="bg-linear-to-r from-indigo-600 to-cyan-500 rounded-2xl p-6 md:p-8 text-white mb-6 shadow-sm">
+      <div className="bg-linear-to-r from-amber-700 via-amber-800 to-stone-900 rounded-2xl p-6 md:p-8 text-white mb-6 shadow-sm">
         <h2 className="text-2xl md:text-3xl font-bold">
           {getGreeting()}, {firstName} 👋
         </h2>
-        <p className="mt-2 text-indigo-100">
+        <p className="mt-2 text-amber-100">
           {jobs.length === 0
             ? "Start by finding jobs in your field."
             : `You are tracking ${jobs.length} ${
@@ -221,7 +221,7 @@ export default function Overview() {
               </p>
               <Link
                 to="/find-jobs"
-                className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg px-4 py-2.5"
+                className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white text-sm font-medium rounded-lg px-4 py-2.5"
               >
                 Find your first job <ArrowRight size={16} />
               </Link>
@@ -392,12 +392,12 @@ export default function Overview() {
                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold text-slate-800 flex items-center gap-2">
-                      <ClipboardList size={18} className="text-indigo-600" />
+                      <ClipboardList size={18} className="text-amber-700" />
                       Recent applications
                     </h3>
                     <Link
                       to="/applications"
-                      className="text-sm text-indigo-600 hover:underline"
+                      className="text-sm text-amber-700 hover:underline"
                     >
                       View all
                     </Link>
