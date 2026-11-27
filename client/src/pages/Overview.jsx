@@ -145,26 +145,28 @@ export default function Overview() {
   const firstName = user?.name ? user.name.split(" ")[0] : "";
 
   return (
-    <div className="max-w-6xl">
+    <div className="w-full">
       {/* Hero */}
-      <div className="bg-linear-to-r from-amber-700 via-amber-800 to-stone-900 rounded-2xl p-6 md:p-8 text-white mb-6 shadow-sm">
-        <h2 className="text-2xl md:text-3xl font-bold">
-          {getGreeting()}, {firstName} 👋
-        </h2>
-        <p className="mt-2 text-white/80">
-          {jobs.length === 0
-            ? "Start by finding jobs in your field."
-            : `You are tracking ${jobs.length} ${
-                jobs.length === 1 ? "job" : "jobs"
-              }${
-                upcoming.length > 0
-                  ? ` and have ${upcoming.length} upcoming ${
-                      upcoming.length === 1 ? "interview" : "interviews"
-                    }.`
-                  : "."
-              }`}
-        </p>
-        <div className="flex flex-wrap gap-3 mt-5">
+      <div className="bg-linear-to-r from-[#542a12] via-[#3a1a0c] to-[#1c0d06] rounded-2xl p-6 md:p-8 xl:p-10 text-white mb-6 shadow-sm flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border border-white/5">
+        <div className="max-w-2xl">
+          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
+            {getGreeting()}, {firstName} 👋
+          </h2>
+          <p className="mt-2 text-white/80 text-sm md:text-base">
+            {jobs.length === 0
+              ? "Start by finding jobs in your field."
+              : `You are tracking ${jobs.length} ${
+                  jobs.length === 1 ? "job" : "jobs"
+                }${
+                  upcoming.length > 0
+                    ? ` and have ${upcoming.length} upcoming ${
+                        upcoming.length === 1 ? "interview" : "interviews"
+                      }.`
+                    : "."
+                }`}
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 shrink-0">
           <Link
             to="/find-jobs"
             className="flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white text-sm font-medium rounded-lg px-4 py-2.5 transition"
@@ -191,21 +193,23 @@ export default function Overview() {
       ) : (
         <>
           {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 xl:gap-5 mb-6">
             {stats.map(({ label, value, icon: Icon, color }, idx) => (
               <div
                 key={label}
-                className={`bg-white rounded-xl border border-slate-200 shadow-sm p-4 hover:shadow-md transition ${
+                className={`bg-white rounded-xl border border-slate-200 shadow-sm p-4 xl:p-5 hover:shadow-md transition flex flex-col justify-between ${
                   idx === 0 ? "col-span-2 sm:col-span-1" : ""
                 }`}
               >
                 <div
-                  className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 ${color}`}
+                  className={`w-9 h-9 xl:w-10 xl:h-10 rounded-lg flex items-center justify-center mb-3 ${color}`}
                 >
                   <Icon size={18} />
                 </div>
-                <p className="text-2xl font-bold text-slate-800">{value}</p>
-                <p className="text-sm text-slate-500">{label}</p>
+                <div>
+                  <p className="text-2xl xl:text-3xl font-bold text-slate-800">{value}</p>
+                  <p className="text-sm text-slate-500">{label}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -229,20 +233,20 @@ export default function Overview() {
           ) : (
             <>
               {/* Charts */}
-              <div className="grid lg:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
+              <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 mb-6">
+                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 xl:p-6 flex flex-col justify-between">
                   <h3 className="font-semibold text-slate-800 mb-2">
                     Applications by status
                   </h3>
-                  <div className="h-56 relative">
+                  <div className="h-64 relative flex items-center justify-center">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
                         <Pie
                           data={pieData}
                           dataKey="value"
                           nameKey="name"
-                          innerRadius={60}
-                          outerRadius={85}
+                          innerRadius={65}
+                          outerRadius={92}
                           paddingAngle={3}
                           stroke="none"
                         >
@@ -260,7 +264,7 @@ export default function Overview() {
                       <span className="text-xs text-slate-500">total</span>
                     </div>
                   </div>
-                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-2 text-xs text-slate-600">
+                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3 text-xs text-slate-600">
                     {STATUSES.map((s) => (
                       <div key={s} className="flex items-center gap-1.5">
                         <span
@@ -273,7 +277,7 @@ export default function Overview() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
+                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 xl:p-6 flex flex-col justify-between">
                   <h3 className="font-semibold text-slate-800 mb-2">
                     Jobs added per week
                   </h3>
@@ -305,7 +309,7 @@ export default function Overview() {
                         <Bar
                           dataKey="count"
                           name="Jobs"
-                          fill="#6366f1"
+                          fill="#b45309"
                           radius={[6, 6, 0, 0]}
                         />
                       </BarChart>
@@ -316,15 +320,15 @@ export default function Overview() {
 
               {/* Follow-up reminder */}
               {followUps.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 xl:p-6 mb-6">
                   <h3 className="font-semibold text-blue-700 flex items-center gap-2 mb-3">
                     <BellRing size={18} /> Time to follow up
                   </h3>
-                  <div className="space-y-2">
+                  <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
                     {followUps.map((job) => (
                       <div
                         key={job._id}
-                        className="flex items-center justify-between gap-3 bg-white rounded-lg px-3 py-2.5 text-sm"
+                        className="flex items-center justify-between gap-3 bg-white rounded-lg px-3.5 py-3 text-sm shadow-xs"
                       >
                         <div className="min-w-0">
                           <p className="font-medium text-slate-800 truncate">
@@ -334,7 +338,7 @@ export default function Overview() {
                             {job.role}
                           </p>
                         </div>
-                        <span className="text-xs text-blue-600 shrink-0">
+                        <span className="text-xs font-medium text-blue-600 shrink-0">
                           Applied {job.daysAgo} days ago
                         </span>
                       </div>
@@ -347,88 +351,92 @@ export default function Overview() {
                 </div>
               )}
 
-              <div className="grid lg:grid-cols-2 gap-6">
+              <div className="grid lg:grid-cols-2 gap-6 xl:gap-8">
                 {/* Upcoming interviews */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
-                  <h3 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                    <CalendarClock size={18} className="text-amber-600" />
-                    Upcoming interviews
-                  </h3>
-                  {upcoming.length === 0 ? (
-                    <p className="text-sm text-slate-400 py-4">
-                      No interviews scheduled. Add an interview date to a job
-                      and it will show up here.
-                    </p>
-                  ) : (
-                    <div className="space-y-3">
-                      {upcoming.map((job) => (
+                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 xl:p-6 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                      <CalendarClock size={18} className="text-amber-600" />
+                      Upcoming interviews
+                    </h3>
+                    {upcoming.length === 0 ? (
+                      <p className="text-sm text-slate-400 py-4">
+                        No interviews scheduled. Add an interview date to a job
+                        and it will show up here.
+                      </p>
+                    ) : (
+                      <div className="space-y-3">
+                        {upcoming.map((job) => (
+                          <div
+                            key={job._id}
+                            className="flex items-center justify-between gap-3 bg-amber-50 rounded-lg px-3.5 py-2.5"
+                          >
+                            <div className="min-w-0">
+                              <p className="font-medium text-slate-800 truncate">
+                                {job.company}
+                              </p>
+                              <p className="text-xs text-slate-500 truncate">
+                                {job.role}
+                              </p>
+                            </div>
+                            <div className="text-right shrink-0">
+                              <p className="text-sm font-semibold text-amber-700">
+                                {daysLeft(job.interviewDate)}
+                              </p>
+                              <p className="text-xs text-slate-500">
+                                {new Date(job.interviewDate).toLocaleDateString()}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Recent applications */}
+                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 xl:p-6 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-semibold text-slate-800 flex items-center gap-2">
+                        <ClipboardList size={18} className="text-amber-700" />
+                        Recent applications
+                      </h3>
+                      <Link
+                        to="/applications"
+                        className="text-sm text-amber-700 hover:underline"
+                      >
+                        View all
+                      </Link>
+                    </div>
+                    <div className="space-y-2">
+                      {recent.map((job) => (
                         <div
                           key={job._id}
-                          className="flex items-center justify-between gap-3 bg-amber-50 rounded-lg px-3 py-2.5"
+                          className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition"
                         >
                           <div className="min-w-0">
                             <p className="font-medium text-slate-800 truncate">
                               {job.company}
                             </p>
-                            <p className="text-xs text-slate-500 truncate">
+                            <p className="text-xs text-slate-500 truncate flex items-center gap-1">
                               {job.role}
+                              {job.location && (
+                                <>
+                                  <span>·</span>
+                                  <MapPin size={11} /> {job.location}
+                                </>
+                              )}
                             </p>
                           </div>
-                          <div className="text-right shrink-0">
-                            <p className="text-sm font-semibold text-amber-700">
-                              {daysLeft(job.interviewDate)}
-                            </p>
-                            <p className="text-xs text-slate-500">
-                              {new Date(job.interviewDate).toLocaleDateString()}
-                            </p>
-                          </div>
+                          <span
+                            className={`text-xs font-medium rounded-full px-2.5 py-1 shrink-0 ${STATUS_BADGE[job.status]}`}
+                          >
+                            {job.status}
+                          </span>
                         </div>
                       ))}
                     </div>
-                  )}
-                </div>
-
-                {/* Recent applications */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-slate-800 flex items-center gap-2">
-                      <ClipboardList size={18} className="text-amber-700" />
-                      Recent applications
-                    </h3>
-                    <Link
-                      to="/applications"
-                      className="text-sm text-amber-700 hover:underline"
-                    >
-                      View all
-                    </Link>
-                  </div>
-                  <div className="space-y-3">
-                    {recent.map((job) => (
-                      <div
-                        key={job._id}
-                        className="flex items-center justify-between gap-3"
-                      >
-                        <div className="min-w-0">
-                          <p className="font-medium text-slate-800 truncate">
-                            {job.company}
-                          </p>
-                          <p className="text-xs text-slate-500 truncate flex items-center gap-1">
-                            {job.role}
-                            {job.location && (
-                              <>
-                                <span>·</span>
-                                <MapPin size={11} /> {job.location}
-                              </>
-                            )}
-                          </p>
-                        </div>
-                        <span
-                          className={`text-xs font-medium rounded-full px-2.5 py-1 shrink-0 ${STATUS_BADGE[job.status]}`}
-                        >
-                          {job.status}
-                        </span>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </div>

@@ -1,4 +1,11 @@
-import { Briefcase, Search, ClipboardList, BellRing, Sun, Moon } from "lucide-react";
+import {
+  Briefcase,
+  Search,
+  ClipboardList,
+  BellRing,
+  Sun,
+  Moon,
+} from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 const features = [
@@ -11,64 +18,90 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
   const { dark, toggle } = useTheme();
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50">
-      {/* Left: brand panel (sirf bari screen pe) */}
-      <div className="hidden lg:flex flex-col justify-between bg-linear-to-br from-amber-700 via-amber-800 to-stone-900 text-white p-12">
-        <div className="flex items-center gap-3">
-          <div className="bg-white/20 p-2.5 rounded-xl">
-            <Briefcase size={22} className="text-white" />
+    <div className="min-h-screen grid lg:grid-cols-2 bg-[#090d16] text-white">
+      {/* Left: brand panel with rich warm brown/espresso gradient */}
+      <div
+        className="relative hidden lg:flex flex-col justify-between overflow-hidden p-8 xl:p-14 select-none min-h-screen"
+        style={{
+          background:
+            "radial-gradient(circle at 10% 15%, #78350f 0%, transparent 50%), radial-gradient(circle at 90% 85%, #542a12 0%, transparent 45%), linear-gradient(135deg, #451a03 0%, #2a1105 45%, #140803 100%)",
+        }}
+      >
+        {/* Subtle ambient glowing orbs in warm brown */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#78350f]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-[#451a03]/30 blur-3xl pointer-events-none" />
+
+        {/* Brand logo at top */}
+        <div className="relative z-20 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#854d0e] to-[#542a12] flex items-center justify-center shadow-lg shadow-[#140803]/60 border border-white/10">
+            <Briefcase size={20} className="text-white" />
           </div>
-          <span className="text-xl font-bold text-white">JobTracker</span>
+          <span className="text-xl font-bold tracking-tight text-white">
+            JobTracker
+          </span>
         </div>
 
-        <div className="my-auto">
-          <h2 className="text-4xl font-bold leading-tight text-white">
+        {/* Center content: Clean centered pitch & features */}
+        <div className="relative z-20 my-auto text-center max-w-lg mx-auto py-8 w-full">
+          <h2 className="text-4xl xl:text-5xl font-extrabold leading-[1.18] text-white tracking-tight">
             Your job search,
             <br />
             finally organised.
           </h2>
-          <p className="mt-4 text-white/80 max-w-md">
+          <p className="mt-4 text-white/80 text-sm xl:text-base leading-relaxed max-w-md mx-auto">
             Find jobs in your field and city, save them in one place, and
             follow every application from wishlist to offer.
           </p>
 
-          <ul className="mt-8 space-y-4">
+          <ul className="mt-8 space-y-3.5 max-w-sm mx-auto text-left">
             {features.map(({ icon: Icon, text }) => (
-              <li key={text} className="flex items-center gap-3">
-                <span className="bg-white/20 p-2 rounded-lg">
-                  <Icon size={18} className="text-white" />
+              <li
+                key={text}
+                className="flex items-center gap-3.5 px-4 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xs hover:bg-white/10 transition"
+              >
+                <span className="w-8 h-8 rounded-lg bg-[#78350f] flex items-center justify-center shadow-xs shrink-0 border border-white/10">
+                  <Icon size={16} className="text-white" />
                 </span>
-                <span className="text-white/90">{text}</span>
+                <span className="text-white/95 text-sm font-medium">
+                  {text}
+                </span>
               </li>
             ))}
           </ul>
         </div>
+
+        {/* Empty bottom element for flex justify-between vertical balance */}
+        <div />
       </div>
 
-      {/* Right: form */}
-      <div className="relative flex items-center justify-center p-6">
+      {/* Right: form section */}
+      <div className="relative flex items-center justify-center p-6 sm:p-10 bg-[#090d16]">
+        {/* Toggle dark mode button */}
         <button
           onClick={toggle}
-          className="absolute top-4 right-4 p-2 rounded-lg text-slate-500 hover:bg-slate-100"
-          title="Toggle dark mode"
+          className="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/60 transition cursor-pointer"
+          title="Toggle theme"
         >
           {dark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
-        <div className="w-full max-w-md">
-          <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="bg-linear-to-br from-amber-600 to-stone-800 p-2 rounded-lg">
+        <div className="w-full max-w-[390px]">
+          {/* Mobile brand header */}
+          <div className="lg:hidden flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#854d0e] to-[#542a12] flex items-center justify-center shadow-md border border-white/10">
               <Briefcase className="text-white" size={18} />
             </div>
-            <span className="font-bold text-slate-800 text-lg">JobTracker</span>
+            <span className="font-bold text-white text-xl tracking-tight">
+              JobTracker
+            </span>
           </div>
 
-          <h1 className="text-3xl font-bold text-slate-800">{title}</h1>
-          <p className="text-slate-500 mt-2 mb-8">{subtitle}</p>
+          <h1 className="text-3xl font-bold text-white tracking-tight">{title}</h1>
+          <p className="text-slate-400 text-sm mt-2 mb-8">{subtitle}</p>
 
           {children}
 
-          <p className="text-center text-sm text-slate-500 mt-8">{footer}</p>
+          <div className="text-center text-sm text-slate-400 mt-7">{footer}</div>
         </div>
       </div>
     </div>

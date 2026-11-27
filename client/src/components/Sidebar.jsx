@@ -25,7 +25,7 @@ const linkClass = ({ isActive }) =>
   }`;
 
 const logoBox =
-  "bg-linear-to-br from-amber-600 to-stone-800 rounded-lg shadow-sm";
+  "bg-linear-to-br from-[#854d0e] to-[#542a12] rounded-lg shadow-sm border border-white/10";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
