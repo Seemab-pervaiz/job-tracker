@@ -25,7 +25,7 @@ const linkClass = ({ isActive }) =>
   }`;
 
 const logoBox =
-  "bg-linear-to-br from-indigo-500 to-violet-600 rounded-lg shadow-sm";
+  "bg-linear-to-br from-indigo-500 to-cyan-500 rounded-lg shadow-sm";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();

@@ -13,7 +13,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
   return (
     <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50">
       {/* Left: brand panel (sirf bari screen pe) */}
-      <div className="hidden lg:flex flex-col justify-between bg-linear-to-br from-indigo-600 to-violet-700 text-white p-12">
+      <div className="hidden lg:flex flex-col justify-between bg-linear-to-br from-indigo-600 to-cyan-600 text-white p-12">
         <div className="flex items-center gap-3">
           <div className="bg-white/20 p-2.5 rounded-xl">
             <Briefcase size={22} />
@@ -21,7 +21,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
           <span className="text-xl font-bold">JobTracker</span>
         </div>
 
-        <div>
+        <div className="my-auto">
           <h2 className="text-4xl font-bold leading-tight">
             Your job search,
             <br />
@@ -43,10 +43,6 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
             ))}
           </ul>
         </div>
-
-        <p className="text-sm text-indigo-200">
-          Built with React, Node.js and MongoDB
-        </p>
       </div>
 
       {/* Right: form */}
@@ -61,7 +57,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
 
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="bg-linear-to-br from-indigo-500 to-violet-600 p-2 rounded-lg">
+            <div className="bg-linear-to-br from-indigo-500 to-cyan-500 p-2 rounded-lg">
               <Briefcase className="text-white" size={18} />
             </div>
             <span className="font-bold text-slate-800 text-lg">JobTracker</span>

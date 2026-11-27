@@ -147,7 +147,7 @@ export default function Overview() {
   return (
     <div className="max-w-6xl">
       {/* Hero */}
-      <div className="bg-linear-to-r from-indigo-600 to-violet-600 rounded-2xl p-6 md:p-8 text-white mb-6 shadow-sm">
+      <div className="bg-linear-to-r from-indigo-600 to-cyan-500 rounded-2xl p-6 md:p-8 text-white mb-6 shadow-sm">
         <h2 className="text-2xl md:text-3xl font-bold">
           {getGreeting()}, {firstName} 👋
         </h2>
