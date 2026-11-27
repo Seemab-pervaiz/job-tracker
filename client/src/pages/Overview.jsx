@@ -151,7 +151,7 @@ export default function Overview() {
         <h2 className="text-2xl md:text-3xl font-bold">
           {getGreeting()}, {firstName} 👋
         </h2>
-        <p className="mt-2 text-amber-100">
+        <p className="mt-2 text-white/80">
           {jobs.length === 0
             ? "Start by finding jobs in your field."
             : `You are tracking ${jobs.length} ${

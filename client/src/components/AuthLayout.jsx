@@ -16,18 +16,18 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
       <div className="hidden lg:flex flex-col justify-between bg-linear-to-br from-amber-700 via-amber-800 to-stone-900 text-white p-12">
         <div className="flex items-center gap-3">
           <div className="bg-white/20 p-2.5 rounded-xl">
-            <Briefcase size={22} />
+            <Briefcase size={22} className="text-white" />
           </div>
-          <span className="text-xl font-bold">JobTracker</span>
+          <span className="text-xl font-bold text-white">JobTracker</span>
         </div>
 
         <div className="my-auto">
-          <h2 className="text-4xl font-bold leading-tight">
+          <h2 className="text-4xl font-bold leading-tight text-white">
             Your job search,
             <br />
             finally organised.
           </h2>
-          <p className="mt-4 text-amber-100 max-w-md">
+          <p className="mt-4 text-white/80 max-w-md">
             Find jobs in your field and city, save them in one place, and
             follow every application from wishlist to offer.
           </p>
@@ -36,9 +36,9 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
             {features.map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-center gap-3">
                 <span className="bg-white/20 p-2 rounded-lg">
-                  <Icon size={18} />
+                  <Icon size={18} className="text-white" />
                 </span>
-                <span className="text-amber-50">{text}</span>
+                <span className="text-white/90">{text}</span>
               </li>
             ))}
           </ul>
